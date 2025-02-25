@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Code, Database, Server, Layout, GitBranch, Terminal, Layers, Cpu, Globe, Workflow } from "lucide-react"
+import { Code, Lock, Zap, Layout, GitBranch, Terminal, Layers, Cpu, Globe, BarChart } from "lucide-react"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
 
 const SkillIcon = ({ icon: Icon, color }: { icon: any; color: string }) => (
@@ -9,7 +9,6 @@ const SkillIcon = ({ icon: Icon, color }: { icon: any; color: string }) => (
     <Icon className={`w-6 h-6 ${color}`} />
   </div>
 )
-
 const skills = [
   {
     icon: Code,
@@ -20,66 +19,66 @@ const skills = [
     color: "text-blue-500",
   },
   {
-    icon: Server,
-    name: "Backend Development",
-    tech: "Node.js, Express, Fastify",
-    description: "Creating robust server-side applications with focus on scalability and clean architecture.",
-    color: "text-green-500",
-  },
-  {
-    icon: Database,
-    name: "Database Management",
-    tech: "MongoDB, Mongoose",
-    description: "Designing and implementing efficient database schemas and queries for optimal data management.",
-    color: "text-purple-500",
+    icon: Layers,
+    name: "State Management",
+    tech: "Redux Thunk, RTK Toolkit, Context API",
+    description: "Managing dynamic application state using Redux and RTK Toolkit for seamless data flow.",
+    color: "text-indigo-500",
   },
   {
     icon: Layout,
-    name: "UI/UX Design",
-    tech: "Tailwind CSS, Material UI",
-    description: "Crafting beautiful and intuitive user interfaces with modern design principles and frameworks.",
+    name: "Styling & Design",
+    tech: "Tailwind CSS, Ant Design",
+    description: "Creating visually appealing and responsive designs using modern CSS frameworks.",
     color: "text-pink-500",
+  },
+  {
+    icon: Globe,
+    name: "Localization",
+    tech: "i18n",
+    description: "Implementing multi-language support to enhance global accessibility.",
+    color: "text-green-500",
+  },
+  {
+    icon: Zap,
+    name: "Animations",
+    tech: "React Lottie",
+    description: "Creating smooth, engaging animations with Lottie for enhanced user interaction.",
+    color: "text-yellow-500",
+  },
+  {
+    icon: Lock,
+    name: "Authentication",
+    tech: "Keycloak",
+    description: "Integrating secure authentication and authorization flows with Keycloak.",
+    color: "text-red-500",
   },
   {
     icon: GitBranch,
     name: "Version Control",
     tech: "Git, GitHub",
-    description: "Managing code versions efficiently with Git and collaborating effectively through GitHub.",
+    description: "Managing code versions efficiently and collaborating through GitHub.",
     color: "text-orange-500",
   },
   {
     icon: Terminal,
-    name: "TypeScript",
-    tech: "TypeScript, JavaScript",
-    description: "Writing type-safe code for better maintainability and developer experience.",
-    color: "text-yellow-500",
+    name: "API Integration",
+    tech: "Axios, RTK Query",
+    description: "Fetching and managing data from RESTful APIs using Axios and RTK Query.",
+    color: "text-purple-500",
   },
   {
-    icon: Layers,
-    name: "State Management",
-    tech: "Redux, Context API",
-    description: "Managing complex application state with modern state management solutions.",
-    color: "text-indigo-500",
-  },
-  {
-    icon: Cpu,
-    name: "API Development",
-    tech: "REST, GraphQL",
-    description: "Designing and implementing efficient APIs for seamless data communication.",
-    color: "text-red-500",
+    icon: BarChart,
+    name: "Data Visualization",
+    tech: "Chart.js",
+    description: "Creating interactive data visualizations to represent complex datasets.",
+    color: "text-teal-500",
   },
   {
     icon: Globe,
     name: "Web Performance",
     tech: "Optimization, SEO",
-    description: "Optimizing web applications for speed, accessibility, and search engine visibility.",
-    color: "text-teal-500",
-  },
-  {
-    icon: Workflow,
-    name: "Agile Methodologies",
-    tech: "Scrum, Kanban",
-    description: "Working efficiently in agile environments with focus on continuous delivery.",
+    description: "Enhancing load times, accessibility, and search engine visibility.",
     color: "text-cyan-500",
   },
 ]

@@ -9,14 +9,15 @@ export default function Education() {
   const education = [
     {
       degree: "Bachelor's Degree in Computer Science",
-      institution: "GC University Faisalabad",
-      period: "2018 – 2022",
+      institution: "Punjab University College of Information Technology (PUCIT), Lahore",
+      period: "2019 – 2023",
       achievements: [
         "Graduated with honors",
-        "Specialized in Web Technologies and Artificial Intelligence",
-        "Completed capstone project on 'Intelligent Web Application for Healthcare'",
+        "Specialized in Web Technologies and Software Engineering",
+        "Completed capstone project on 'Bookhood: A Social Platform for Book Enthusiasts'",
       ],
     },
+    
   ]
 
   return (

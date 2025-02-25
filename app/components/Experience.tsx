@@ -12,6 +12,7 @@ export default function Experience() {
       location: "Remote",
       period: "2024 - Present",
       role: "Front-End Developer",
+      icon:<Globe className="w-6 h-6 mr-2 text-blue-500" />,
       responsibilities: [
         "Developing custom web applications for international clients",
         "Building responsive and scalable frontend interfaces using React and Next.js",
@@ -26,6 +27,7 @@ export default function Experience() {
       location: "Lahore, Pakistan",
       period: "2024 - Present",
       role: "Software Engineer",
+      icon:<Image style={{marginLeft : "-14px"}} src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1491829318/ffwlfq2ml3thj5gg6drt.png" alt="Dubizzle Labs" width={40} height={40} />,
       responsibilities: [
         "Developed and maintained multi-tenant web applications using React.js and Next.js",
         "Implemented state management with Redux Thunk and RTK Toolkit",
@@ -40,6 +42,7 @@ export default function Experience() {
       location: "Lahore, Pakistan",
       period: "2023 - 2024",
       role: "Associate Software Engineer",
+      icon: <Image style={{marginLeft : "-14px"}} src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1491829318/ffwlfq2ml3thj5gg6drt.png" alt="Dubizzle Labs" width={40} height={40} />,
       responsibilities: [
         "Assisted in developing front-end features using React.js and Next.js",
         "Worked with Redux Thunk and RTK Toolkit for basic state management",
@@ -74,7 +77,7 @@ export default function Experience() {
               ></div>
               <div className="relative z-10">
                 <h3 className="text-2xl font-semibold mb-2 dark:text-white flex items-center">
-                  {exp.company === "Freelance" ? <Globe className="w-6 h-6 mr-2 text-blue-500" /> : null}
+                  {exp.icon}
                   {exp.company}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 flex items-center">

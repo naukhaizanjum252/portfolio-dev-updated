@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Code, Layout, Server, Smartphone } from "lucide-react"
+import { Globe, Layout, Zap, Smartphone } from "lucide-react"
 import Image from "next/image"
 
 export default function Services() {
@@ -9,26 +9,25 @@ export default function Services() {
     {
       icon: <Layout className="w-12 h-12 text-blue-500" />,
       title: "Web Application Development",
-      description: "Custom web applications built with React and Next.js, focusing on performance and user experience.",
+      description: "Crafting responsive and dynamic web applications using React.js and Next.js, with a strong focus on user experience and performance.",
     },
     {
-      icon: <Server className="w-12 h-12 text-green-500" />,
-      title: "Backend Development",
-      description: "Robust and scalable server-side solutions using Node.js, Express, and Fastify.",
-    },
-    {
-      icon: <Code className="w-12 h-12 text-purple-500" />,
-      title: "API Development",
-      description:
-        "RESTful and GraphQL API design and implementation for seamless data flow between client and server.",
-    },
-    {
-      icon: <Smartphone className="w-12 h-12 text-yellow-500" />,
+      icon: <Smartphone className="w-12 h-12 text-green-500" />,
       title: "Responsive Design",
-      description: "Mobile-first, responsive web designs that work flawlessly across all devices and screen sizes.",
+      description: "Building mobile-first, pixel-perfect designs ensuring seamless functionality across all devices and screen sizes.",
+    },
+    {
+      icon: <Zap className="w-12 h-12 text-purple-500" />,
+      title: "Animations & Interactivity",
+      description: "Enhancing user engagement through smooth animations and interactive elements with React Lottie.",
+    },
+    {
+      icon: <Globe className="w-12 h-12 text-yellow-500" />,
+      title: "Localization & SEO",
+      description: "Implementing multi-language support using i18n and optimizing web performance for better search engine visibility.",
     },
   ]
-
+  
   return (
     <section
       id="services"
