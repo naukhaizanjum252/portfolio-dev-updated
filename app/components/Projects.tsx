@@ -17,41 +17,55 @@ interface Project {
   details: string
 }
 
-const projects: Project[] = [
+const projects = [
   {
     id: 1,
-    title: "E-commerce Platform",
-    description: "A full-stack e-commerce solution with real-time inventory management.",
-    image: "/placeholder.svg?height=300&width=400",
-    technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
-    liveUrl: "https://example-ecommerce.com",
-    githubUrl: "https://github.com/username/ecommerce-project",
-    details:
-      "This e-commerce platform features user authentication, product catalog, shopping cart functionality, and real-time inventory updates. It uses React for the frontend, Node.js and Express for the backend, and MongoDB for the database. Real-time features are implemented using Socket.io.",
+    title: "Profolio - Real Estate Management Platform",
+    description: "Comprehensive real estate management system",
+    image: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/18/d8/96/18d89612-18ac-b84e-202d-7d4ef45337fe/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/460x0w.webp",
+    technologies: ["React", "Next.js", "TypeScript", "Redux Toolkit", "Ant Design", "Chart.js"],
+    liveUrl: "#",
+    githubUrl: "#",
+    details: "A complete real estate management platform built for property agencies in Saudi Arabia. Features include staff management, credit system, property listings, analytics dashboard, and more.",
+    sections: [
+      {
+        title: "Dashboard & Analytics",
+        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dashboard-6iKAC8sSH1tsO51crNwEVzu7HVJx0s.png",
+        description: "Interactive dashboard with real-time analytics, performance metrics, and property management features."
+      },
+      {
+        title: "Property Management",
+        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Post%20Listing-K96SgwDVNV4p2LEB81IXjKF9aqLiGm.png",
+        description: "Comprehensive property listing and management system with advanced filtering and search capabilities."
+      },
+      {
+        title: "Staff Management",
+        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/screencapture-localhost-3000-en-agency-staff-2025-02-24-12_38_31-j8x8K6LTtzrZyG2S9FyCrmHWCIryby.png",
+        description: "Role-based access control and credit management system for agency staff members."
+      }
+    ]
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "A collaborative task management application for teams.",
-    image: "/placeholder.svg?height=300&width=400",
-    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    liveUrl: "https://task-manager-example.com",
-    githubUrl: "https://github.com/username/task-manager",
-    details:
-      "This task management app allows teams to create, assign, and track tasks in real-time. It features drag-and-drop functionality, task prioritization, and team collaboration tools. Built with Next.js and TypeScript for the frontend, with Prisma ORM and PostgreSQL for efficient data management.",
+    title: "Zameen.com",
+    description: "Pakistan's largest real estate portal",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcXFXqHPHyBNtpyArLyT6eEX_NYs45YDlyHA&s",
+    technologies: ["React", "Next.js", "Redux", "Ant Design"],
+    liveUrl: "https://www.zameen.com/",
+    githubUrl: "#",
+    details: "Zameen.com is Pakistan's largest real estate portal, connecting buyers, sellers, and real estate agents."
   },
   {
     id: 3,
-    title: "Weather Forecast Dashboard",
-    description: "An interactive weather forecast dashboard with data visualization.",
-    image: "/placeholder.svg?height=300&width=400",
-    technologies: ["React", "D3.js", "Node.js", "OpenWeatherMap API"],
-    liveUrl: "https://weather-dashboard-example.com",
-    githubUrl: "https://github.com/username/weather-dashboard",
-    details:
-      "This weather forecast dashboard provides detailed weather information and forecasts for locations worldwide. It features interactive charts and maps built with D3.js, and integrates with the OpenWeatherMap API for real-time weather data. The app is responsive and works across desktop and mobile devices.",
-  },
-]
+    title: "Bayut.sa",
+    description: "Leading real estate marketplace in Saudi Arabia",
+    image: "https://media.licdn.com/dms/image/v2/D4D0BAQFAICCa9UGBxw/company-logo_200_200/company-logo_200_200/0/1719256932375/bayut_ksa_logo?e=2147483647&v=beta&t=tanF-iG_lGncla3M0FVdwjHqDeAq92YD4JwAWZ9oUjs",
+    technologies: ["React", "Next.js", "TypeScript", "Redux"],
+    liveUrl: "https://www.bayut.sa/",
+    githubUrl: "#",
+    details: "Bayut.sa is a leading real estate marketplace in Saudi Arabia, providing a platform for property listing and searching."
+  }
+];
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)

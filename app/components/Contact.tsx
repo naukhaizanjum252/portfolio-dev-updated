@@ -72,18 +72,21 @@ export default function Contact() {
               <h3 className="text-2xl font-semibold mb-6 dark:text-white">Contact Information</h3>
               <div className="space-y-6">
                 <a
-                  href="mailto:musmanzafar53@gmail.com"
+                  href="mailto:naukhaizanjum252@gmail.com"
                   className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                  target="_blank"
                 >
                   <Mail className="w-6 h-6 mr-3 text-blue-600" />
-                  musmanzafar53@gmail.com
+                  naukhaizanjum252@gmail.com
                 </a>
                 <a
-                  href="tel:+923055356766"
+                  href="tel:+923314411708"
                   className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                  target="_blank"
+
                 >
                   <Phone className="w-6 h-6 mr-3 text-blue-600" />
-                  +92-305-5356766
+                  +92-331-4411708
                 </a>
                 <div className="flex items-center text-gray-600 dark:text-gray-300">
                   <MapPin className="w-6 h-6 mr-3 text-blue-600" />
