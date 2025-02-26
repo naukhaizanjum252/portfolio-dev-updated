@@ -4,12 +4,39 @@ import { motion } from "framer-motion"
 import { Code, Layers, Brush, Globe, } from "lucide-react"
 import Image from "next/image"
 
+const SkillCard = ({
+  icon: Icon,
+  title,
+  description,
+  index,
+  iconClass,
+}: { icon: any; title: string; description: string; index: number,iconClass:string }) => (
+  <motion.div
+    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+  >
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+    >
+      <Icon className={iconClass} />
+    </motion.div>
+    <h3 className="text-xl font-semibold mt-4 mb-2 dark:text-white">{title}</h3>
+    <p className="text-gray-600 dark:text-gray-300">{description}</p>
+  </motion.div>
+
+
+)
 export default function About() {
   const skills = [
-    { icon: <Code className="w-8 h-8 text-blue-500" />, title: "Frameworks", description: "React, Next.js" },
-    { icon: <Layers className="w-8 h-8 text-green-500" />, title: "State Management & API", description: "Redux Thunk, RTK Toolkit, Axios" },
-    { icon: <Globe className="w-8 h-8 text-purple-500" />, title: "Localization & Authentication", description: "i18n, Keycloak" },
-    { icon: <Brush className="w-8 h-8 text-yellow-500" />, title: "Animations & Forms", description: "React Lottie, Formik" },
+    { iconClass :"w-8 h-8 text-blue-500", icon:Code, title: "Frameworks", description: "React, Next.js" },
+    { iconClass :"w-8 h-8 text-green-500",icon:Layers, title: "State Management & API", description: "Redux Thunk, RTK Toolkit, Axios" },
+    { iconClass :"w-8 h-8 text-purple-500",icon: Globe, title: "Localization & Authentication", description: "i18n, Keycloak" },
+    { iconClass :"w-8 h-8 text-yellow-500",icon: Brush, title: "Animations & Forms", description: "React Lottie, Formik" },
   ]
   
   
@@ -56,11 +83,14 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             {skills.map((skill, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                {skill.icon}
-                <h3 className="text-xl font-semibold mt-4 mb-2 dark:text-white">{skill.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{skill.description}</p>
-              </div>
+              <SkillCard
+                key={index}
+                icon={skill.icon}
+                title={skill.title}
+                description={skill.description}
+                index={index}
+                iconClass={skill.iconClass}
+              />
             ))}
           </motion.div>
         </div>
