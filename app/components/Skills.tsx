@@ -74,13 +74,13 @@ const skills = [
     description: "Creating interactive data visualizations to represent complex datasets.",
     color: "text-teal-500",
   },
-  {
-    icon: Globe,
-    name: "Web Performance",
-    tech: "Optimization, SEO",
-    description: "Enhancing load times, accessibility, and search engine visibility.",
-    color: "text-cyan-500",
-  },
+  // {
+  //   icon: Globe,
+  //   name: "Web Performance",
+  //   tech: "Optimization, SEO",
+  //   description: "Enhancing load times, accessibility, and search engine visibility.",
+  //   color: "text-cyan-500",
+  // },
 ]
 
 export default function Skills() {

@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Briefcase, Calendar, MapPin, Globe } from "lucide-react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import AnimatedSectionHeader from "./AnimatedSectionHeader"
+import { Briefcase, Calendar, MapPin, Globe } from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import AnimatedSectionHeader from "./AnimatedSectionHeader";
 
 export default function Experience() {
   const experiences = [
@@ -12,7 +12,7 @@ export default function Experience() {
       location: "Remote",
       period: "2024 - Present",
       role: "Front-End Developer",
-      icon:<Globe className="w-6 h-6 mr-2 text-blue-500" />,
+      icon: <Globe className="w-6 h-6 mr-2 text-blue-500" />,
       responsibilities: [
         "Developing custom web applications for international clients",
         "Building responsive and scalable frontend interfaces using React and Next.js",
@@ -21,38 +21,53 @@ export default function Experience() {
         "Collaborating with clients to design user-friendly and visually appealing UIs",
       ],
     },
-    
+
     {
       company: "Dubizzle Labs",
       location: "Lahore, Pakistan",
       period: "2024 - Present",
       role: "Software Engineer",
-      icon:<Image style={{marginLeft : "-14px"}} src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1491829318/ffwlfq2ml3thj5gg6drt.png" alt="Dubizzle Labs" width={40} height={40} />,
+      icon: (
+        <Image
+          style={{ marginLeft: "-14px" }}
+          src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1491829318/ffwlfq2ml3thj5gg6drt.png"
+          alt="Dubizzle Labs"
+          width={40}
+          height={40}
+        />
+      ),
       responsibilities: [
-        "Developed and maintained multi-tenant web applications using React.js and Next.js",
-        "Implemented state management with Redux Thunk and RTK Toolkit",
-        "Integrated localization solutions using i18n for seamless multi-language support",
-        "Collaborated on API integrations and data fetching strategies using Axios and RTK Query",
-        "Enhanced application performance through optimization and caching techniques",
+        "Refactored state management by migrating from Redux Thunk to RTK Query, boosting API efficiency and data fetching performance",
+        "Developed a comprehensive Leads Management System (LMS), integrating React-Chart.js for real-time data visualization",
+        "Implemented multi-platform support and localization to ensure seamless user experiences across regions",
+        "Redesigned and optimized filtering systems to enhance data accessibility and performance",
+        "Collaborated across teams to improve code scalability and maintainability",
       ],
     },
-    
+
     {
       company: "Dubizzle Labs",
       location: "Lahore, Pakistan",
       period: "2023 - 2024",
       role: "Associate Software Engineer",
-      icon: <Image style={{marginLeft : "-14px"}} src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1491829318/ffwlfq2ml3thj5gg6drt.png" alt="Dubizzle Labs" width={40} height={40} />,
+      icon: (
+        <Image
+          style={{ marginLeft: "-14px" }}
+          src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/v1491829318/ffwlfq2ml3thj5gg6drt.png"
+          alt="Dubizzle Labs"
+          width={40}
+          height={40}
+        />
+      ),
       responsibilities: [
-        "Assisted in developing front-end features using React.js and Next.js",
-        "Worked with Redux Thunk and RTK Toolkit for basic state management",
-        "Helped integrate localization using i18n",
-        "Supported API requests and data fetching with Axios",
-        "Contributed to UI improvements and bug fixes",
+        "Built multi-tenant systems, customizing CRM solutions for regional markets",
+        "Integrated localization across various platforms to support multi-language accessibility",
+        "Assisted in developing advanced filtering logic for data-heavy applications",
+        "Conducted debugging and code refactoring to strengthen platform stability",
+        "Worked closely with senior developers to align product features with market demands",
       ],
     },
-    
-  ]
+  ];
 
   return (
     <section
@@ -94,7 +109,10 @@ export default function Experience() {
                 </p>
                 <ul className="list-none space-y-2">
                   {exp.responsibilities.map((resp, idx) => (
-                    <li key={idx} className="text-gray-700 dark:text-gray-300 flex items-start">
+                    <li
+                      key={idx}
+                      className="text-gray-700 dark:text-gray-300 flex items-start"
+                    >
                       <span className="text-blue-500 mr-2">•</span>
                       {resp}
                     </li>
@@ -106,9 +124,13 @@ export default function Experience() {
         </div>
       </div>
       <div className="absolute bottom-0 right-0 w-64 h-64 -mb-32 -mr-32 opacity-20">
-        <Image src="/placeholder.svg?height=256&width=256" alt="Decorative background" width={256} height={256} />
+        <Image
+          src="/placeholder.svg?height=256&width=256"
+          alt="Decorative background"
+          width={256}
+          height={256}
+        />
       </div>
     </section>
-  )
+  );
 }
-
