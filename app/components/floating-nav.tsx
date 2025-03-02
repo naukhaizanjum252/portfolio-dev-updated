@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const sections = [
   { id: "hero", label: "Home" },
@@ -12,32 +13,32 @@ const sections = [
   { id: "projects", label: "Projects" },
   { id: "education", label: "Education" },
   { id: "contact", label: "Contact" },
-]
+];
 
 export default function FloatingNav() {
-  const [activeSection, setActiveSection] = useState("hero")
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
+            setActiveSection(entry.target.id);
           }
-        })
+        });
       },
-      { threshold: 0.5 },
-    )
+      { threshold: 0.5 }
+    );
 
     sections.forEach(({ id }) => {
-      const element = document.getElementById(id)
-      if (element) observer.observe(element)
-    })
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
-  return (
+  return !useIsMobile() ? (
     <motion.div
       className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50"
       initial={{ opacity: 0, x: 20 }}
@@ -48,7 +49,11 @@ export default function FloatingNav() {
         {sections.map(({ id, label }) => (
           <button
             key={id}
-            onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() =>
+              document
+                .getElementById(id)
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className="group relative flex items-center"
             aria-label={`Scroll to ${label}`}
           >
@@ -66,6 +71,5 @@ export default function FloatingNav() {
         ))}
       </div>
     </motion.div>
-  )
+  ) : null;
 }
-

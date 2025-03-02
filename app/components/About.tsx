@@ -25,7 +25,7 @@ const SkillCard = ({
     >
       <Icon className={iconClass} />
     </motion.div>
-    <h3 className="text-xl font-semibold mt-4 mb-2 dark:text-white">{title}</h3>
+    <h3 className="text-md md:text-xl font-semibold mt-4 mb-2 dark:text-white">{title}</h3>
     <p className="text-gray-600 dark:text-gray-300">{description}</p>
   </motion.div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Code, Globe, ExternalLink } from "lucide-react";
 import Image from "next/image";
@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Card } from "@/components/ui/card";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Project {
   id: number;
@@ -180,7 +181,7 @@ const projects: Project[] = [
     ],
     liveUrl: "https://naukhaiz.vercel.app",
     githubUrl: "https://github.com/naukhaizanjum252/portfolio-aceternity-next",
-    iconSize : 18,
+    iconSize: 18,
     details:
       "A sleek and responsive portfolio website highlighting video editing projects and web development work. Key features include a dynamic hero section, structured long-form content grid, user-friendly contact form, and engaging testimonials. Built with modern React frameworks and styled using Tailwind CSS.",
     sections: [
@@ -237,11 +238,23 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [currentImage, setCurrentImage] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   const openImage = (image: string) => {
     setCurrentImage(image);
     setIsOpen(true);
   };
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden"; // Disable scrolling when modal is open
+    } else {
+      document.body.style.overflow = "auto"; // Restore scrolling
+    }
+    return () => {
+      document.body.style.overflow = "auto"; // Cleanup on unmount
+    };
+  }, [selectedProject]);
 
   const closeImage = () => {
     setIsOpen(false);
@@ -306,15 +319,12 @@ export default function Projects() {
 
   const renderListView = () =>
     selectedProject?.sections?.map((section) => (
-      <motion.div
-        // whileHover={{ scale: 1.05 }}
-        initial={{ y: -1050 }}
-        animate={{ y: 0 }}
-      >
+      <motion.div initial={{ y: -1050 }} animate={{ y: 0 }}>
         <Card
           style={{
             padding: 18,
-            margin: 50,
+            margin: isMobile ? 2 : 50,
+            marginBottom: isMobile ? 20 : 0,
             backgroundColor: "#fafafa",
             boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.1)",
             borderRadius: 18,
@@ -359,16 +369,16 @@ export default function Projects() {
                 height={300}
                 className="w-full h-48 object-cover"
               />
-              <div className="p-6">
+              <div className="md:p-6 p-3">
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black hover:text-blue-400 transition-colors duration-300 inline-flex gap-24"
+                  className=" text-black hover:text-blue-400 transition-colors duration-300 inline-flex md:gap-24 gap-20"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <motion.h3
-                    className="text-xl group-hover:text-blue-400 font-semibold mb-2 dark:text-white inline-flex items-center gap-1"
+                    className="md:text-xl text-lg group-hover:text-blue-400 font-semibold mb-2 dark:text-white inline-flex items-center gap-1"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                   >
@@ -376,29 +386,31 @@ export default function Projects() {
                   </motion.h3>
                   <ExternalLink size={project?.iconSize || 28} />
                 </a>
-                <motion.p
-                  className="text-gray-600 dark:text-gray-300 mb-4"
-                  initial={{ x: -150 }}
-                  animate={{ x: 0 }}
-                >
-                  {project.description}
-                </motion.p>
-                <motion.div
-                  className="flex flex-wrap gap-2 mb-4"
-                  initial={{ x: -150 }}
-                  animate={{ x: 0 }}
-                >
-                  {project.technologies.map(
-                    (tech: string, techIndex: number) => (
-                      <span
-                        key={techIndex}
-                        className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded"
-                      >
-                        {tech}
-                      </span>
-                    )
-                  )}
-                </motion.div>
+                <div>
+                  <motion.p
+                    className="text-gray-600 dark:text-gray-300 mb-4"
+                    initial={{ x: -150 }}
+                    animate={{ x: 0 }}
+                  >
+                    {project.description}
+                  </motion.p>
+                  <motion.div
+                    className="flex flex-wrap gap-2 mb-4"
+                    initial={{ x: -150 }}
+                    animate={{ x: 0 }}
+                  >
+                    {project.technologies.map(
+                      (tech: string, techIndex: number) => (
+                        <span
+                          key={techIndex}
+                          className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded"
+                        >
+                          {tech}
+                        </span>
+                      )
+                    )}
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -424,7 +436,7 @@ export default function Projects() {
               <div className=" p-6">
                 <div className=" flex justify-between items-center mb-4">
                   <div className=" inline-flex gap-4">
-                    <h2 className=" text-2xl font-bold dark:text-white">
+                    <h2 className=" text-xl md:text-2xl  font-bold dark:text-white">
                       {selectedProject.title}
                     </h2>
                     <a
@@ -437,12 +449,14 @@ export default function Projects() {
                       <ExternalLink size={28} />
                     </a>
                   </div>
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                  >
-                    <X size={24} />
-                  </button>
+                  {!isMobile && (
+                    <button
+                      onClick={() => setSelectedProject(null)}
+                      className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                    >
+                      <X size={24} />
+                    </button>
+                  )}
                 </div>
                 {renderSections(true)}
 
